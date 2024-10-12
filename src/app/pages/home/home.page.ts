@@ -43,7 +43,7 @@ export class HomePage implements OnInit {
     }, 200);
 
   }
-  shareUs() { }
+ 
 
   async goToTools() {
     try {
