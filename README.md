@@ -1,5 +1,3 @@
-# Ionic CamScanner App
-
 ## Overview
 
 The Ionic CamScanner App is a mobile application built using the Ionic Framework that allows users to scan documents and images using their mobile device's camera. The app provides a simple and intuitive interface for users to capture, edit, and save their scans.
