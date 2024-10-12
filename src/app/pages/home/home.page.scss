@@ -1,0 +1,55 @@
+.folder-item {
+  border-radius: 5px;
+  box-shadow:none !important;
+}
+p {
+  margin: 0;
+}
+
+.view {
+  max-height: 50vh;
+  overflow: scroll;
+}
+
+.list-item {
+  margin-bottom: 5px;
+  border: 1px solid  #53839240;
+  border-radius: 5px;
+  --detail-icon-color :var(--ion-color-secondary);
+  --detail-icon-opacity :1  
+}
+
+ion-avatar{
+  img {
+    --border-radius:0px
+  }
+}
+
+.file-note {
+  display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+}
+ion-searchbar{
+  padding-top: 1px;
+  padding-bottom: 2px;
+  min-height: 20px;
+}
+.d-block {
+  display: block !important;
+}
+.ion-footer-col{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  p{
+    font-size :12px;
+    padding-top: 5px;
+  }
+ }
+
+ hr {
+ height: 0px;
+    border-width: 0.1px;
+ }

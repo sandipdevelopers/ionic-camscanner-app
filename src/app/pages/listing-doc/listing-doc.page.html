@@ -1,0 +1,49 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <strong>My Document</strong>
+    </ion-title>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-segment mode="ios" color="light" [scrollable]="true" (ionChange)="segmentChange()" [(ngModel)]="folderName"
+      name="sagment">
+      <ion-segment-button *ngFor="let folder of saveFile.allFolder" [value]="folder.name">
+        <ion-label>{{folder.name}}</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div style="padding: 10px;">
+    <ion-list  *ngIf="document && document.length">
+
+      <ng-container *ngFor="let doc of document">
+        <ion-item [button]="true" class="ion-no-padding list-item" lines="none" (click)="fileAction(doc)">
+          <ion-avatar slot="start">
+            <img alt="pdf" [src]="doc.nativeUrl" style="margin-left: 8px;" *ngIf="doc.ext !== 'pdf'"/>
+            <img alt="pdf" src="/assets/icon/pdf.svg" *ngIf="doc.ext == 'pdf'"/>
+          </ion-avatar>
+
+          <ion-label>
+            <ion-text style="font-size: 0.900rem;"><strong> {{ doc.name }}</strong></ion-text>
+              <ion-note color="secondary" class="file-note">
+                <span>{{doc.ctime | date :'short'}}</span> <span>{{doc.msize}}</span>
+              </ion-note>
+          </ion-label>
+        </ion-item>
+      </ng-container>
+    </ion-list> 
+
+    
+  </div>
+
+  <div   class="ion-text-center ion-margin-top" *ngIf="(!isSpinner && !document.length)||(!isSpinner &&!document.length)">
+    <ion-label class=" ion-margin-top">
+      <ion-text style="font-size:1rem;"><strong>  No any docs found! </strong></ion-text>
+    </ion-label>
+  </div>
+  
+</ion-content>

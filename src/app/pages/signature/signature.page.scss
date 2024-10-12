@@ -1,0 +1,86 @@
+.canvas-section {
+    background-color: #efefef;
+    border: 2px solid #dedede;
+}
+
+.button-group,
+.footer-toolbar {
+    ion-button {
+        width: 40px;
+    }
+}
+
+.pen-white {
+    --background: #efefef !important;
+}
+
+.pen-black {
+    --background: #000000 !important;
+}
+
+.pen-red {
+    --background: #eb445a !important;
+}
+
+.pen-green {
+    --background: #2dd36f !important;
+}
+
+.pen-blue {
+    --background: #4169E1 !important;
+}
+
+#signature-canvas {
+    width: 100%;
+}
+
+
+.color-picker-circle:focus-visible {
+    outline: 3px solid #6bac92;
+    outline-offset: 2px;
+}
+
+.pen-white {
+    --background: #efefef !important;
+    --color: #efefef !important;
+    --border-color: #efefef !important;
+    --color-checked: #efefef !important;
+    --radio-checked-color: #000000 !important;
+}
+
+.pen-black {
+    --color: #000000 !important;
+    --background: #000000 !important;
+    --border-color: #000000 !important;
+    --color-checked: #000000 !important;
+    --radio-checked-color: #ffffff !important;
+}
+
+.pen-red {
+    --color: #eb445a !important;
+    --background: #eb445a !important;
+    --border-color: #eb445a !important;
+    --color-checked: #eb445a !important;
+    --radio-checked-color: #ffffff !important;
+}
+
+.pen-green {
+    --color: #2dd36f !important;
+    --background: #2dd36f !important;
+    --border-color: #2dd36f !important;
+    --color-checked: #2dd36f !important;
+    --radio-checked-color: #ffffff !important;
+}
+
+.pen-blue {
+    --color: #4169E1 !important;
+    --background: #4169E1 !important;
+    --border-color: #4169E1 !important;
+    --color-checked: #4169E1 !important;
+    --radio-checked-color: #ffffff !important;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: center;
+}

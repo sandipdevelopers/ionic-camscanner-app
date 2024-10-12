@@ -1,0 +1,54 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <strong>ID Card</strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div style="padding: 10px;">
+    <div  class="drag-drop-area" (click)="uploadImage('front')">
+      <div>
+        <ng-container *ngIf="!document.front">
+          <ion-icon name="cloud-upload-outline" size="large"></ion-icon>
+          <p>Click to select the <strong>front</strong> document.</p>
+        </ng-container>
+        <ng-container *ngIf="document.front">
+          <img class="image" [src]="document.front" alt="front">
+        </ng-container>
+
+
+      </div>
+    </div>
+
+    <div  class="drag-drop-area ion-margin-top" (click)="uploadImage('back')">
+      <div>
+        <ng-container *ngIf="!document.back">
+          <ion-icon name="cloud-upload-outline" size="large"></ion-icon>
+          <p>Click to select the <strong>back</strong> document.</p>
+        </ng-container>
+        <ng-container *ngIf="document.back">
+          <img class="image" [src]="document.back" alt="back">
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="ion-text-center">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+
+        <ion-button expand="full" color="primary" (click)="saveAsPDF()">
+          <ion-icon name="document-outline" slot="start"></ion-icon>
+          Download As PDF 
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+  </ion-toolbar>
+
+</ion-footer>

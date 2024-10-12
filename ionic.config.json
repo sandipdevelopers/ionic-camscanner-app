@@ -1,0 +1,7 @@
+{
+  "name": "ioniccamscannerapp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,103 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <strong>Create QR Code</strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div style="padding: 10px;">
+
+    <ion-grid>
+        <div class="ion-no-padding">
+          <ion-select mode="md" label="Select QR Code Type" label-placement="floating" fill="outline"
+            [(ngModel)]="selectedQrType" (ionChange)="onQrTypeChange()" required>
+            <ion-select-option value="1">Free Text</ion-select-option>
+            <ion-select-option value="2">URL</ion-select-option>
+            <ion-select-option value="3">Contact</ion-select-option>
+            <ion-select-option value="4">Phone</ion-select-option>
+            <ion-select-option value="5">SMS</ion-select-option>
+          </ion-select>
+        </div>
+
+        <div class="ion-padding-top" *ngIf="selectedQrType == '1'">
+          <ion-input name="text" label="Text" mode="md" label-placement="floating" fill="outline"
+            placeholder="Enter text" [(ngModel)]="qrData[selectedQrType]" required>
+          </ion-input>
+        </div>
+
+        <div class="ion-padding-top" *ngIf="selectedQrType == '2'">
+          <ion-input name="url" label="URL" mode="md" label-placement="floating" fill="outline"
+            placeholder="Enter URL" [(ngModel)]="qrData[selectedQrType]">
+          </ion-input>
+        </div>
+
+        <div class="ion-padding-top" *ngIf="selectedQrType == '3'">
+          <ion-input name="firstName" label="First Name" mode="md" label-placement="floating" fill="outline"
+            placeholder="Enter first name" [(ngModel)]="qrData[selectedQrType].name">
+          </ion-input>
+
+          <ion-input class="ion-margin-top" name="organization" label="Organization" mode="md" label-placement="floating" fill="outline"
+            placeholder="Enter organization" [(ngModel)]="qrData[selectedQrType].org">
+          </ion-input>
+
+          <ion-input class="ion-margin-top" name="email" label="Email" mode="md" label-placement="floating" fill="outline"
+            placeholder="Enter email" [(ngModel)]="qrData[selectedQrType].email">
+          </ion-input>
+
+          <ion-input class="ion-margin-top" name="phone" type="number" label="Phone" mode="md" label-placement="floating" fill="outline"
+            placeholder="Enter phone number" [(ngModel)]="qrData[selectedQrType].phone">
+          </ion-input>
+
+          <ion-input class="ion-margin-top" name="cell" type="number" label="Cell" mode="md" label-placement="floating" fill="outline"
+            placeholder="Enter cell number" [(ngModel)]="qrData[selectedQrType].cell">
+          </ion-input>
+        </div>
+
+        <div class="ion-padding-top" *ngIf="selectedQrType == '4'">
+          <ion-input name="phoneNumber" label="Phone Number" type="number" mode="md" label-placement="floating" fill="outline"
+            placeholder="Enter phone number" [(ngModel)]="qrData[selectedQrType]">
+          </ion-input>
+        </div>
+
+        <div class="ion-padding-top" *ngIf="selectedQrType == '5'">
+          <ion-input name="phoneNumber" label="Phone Number" mode="md" label-placement="floating" fill="outline"
+            placeholder="Enter phone number" type="number" [(ngModel)]="qrData[selectedQrType].phone">
+          </ion-input>
+
+          <ion-input class="ion-margin-top" name="message" label="Message" mode="md" label-placement="floating" fill="outline"
+            placeholder="Enter message" [(ngModel)]="qrData[selectedQrType].message">
+          </ion-input>
+        </div>
+
+        <div class="ion-padding-top">
+          <ion-button expand="full" (click)="generateQrCode()" class="save-btn">
+            Generate QR Code
+          </ion-button>
+        </div>
+
+
+      <div *ngIf="qrCodeValue" class="ion-padding-top">
+        <div class="ion-text-center">
+          <qr-code [value]="qrCodeValue" size="300" errorCorrectionLevel="M" id="qr-image"></qr-code>
+        </div>
+      </div>
+    </ion-grid>
+  </div>
+</ion-content>
+
+<ion-footer *ngIf="qrCodeValue" class="ion-no-border">
+  <ion-toolbar class="ion-text-center">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-button expand="full" color="primary" (click)="createQrImage()">
+          <ion-icon name="document-outline" slot="start"></ion-icon>
+          Save QR Code
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

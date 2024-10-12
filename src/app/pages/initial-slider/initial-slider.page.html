@@ -1,0 +1,64 @@
+<ion-content class="ion-padding">
+  <div id="container">
+    <swiper-container style="height: 80vh;" #swiper [pagination]="true"  [allowTouchMove]="false" [slidesperview]="1" [loop]="false">
+      <swiper-slide style="height: 66vh;">
+        <app-lottie-animation [animationPath]="'/assets/initial-slider/1.json'"></app-lottie-animation>
+        <div class="ion-text-center">
+            <h5><strong>
+              Scan Document
+            </strong></h5>
+        </div>
+      </swiper-slide>
+      
+      <swiper-slide style="height: 66vh;">
+        <app-lottie-animation [animationPath]="'/assets/initial-slider/2.json'"></app-lottie-animation>
+         <div class="ion-text-center">
+            <h5><strong>
+              IDCard Scan
+            </strong></h5>
+        </div>
+      </swiper-slide>
+
+      <swiper-slide style="height: 66vh;">
+        <app-lottie-animation [animationPath]="'/assets/initial-slider/3.json'"></app-lottie-animation>
+         <div class="ion-text-center">
+            <h5><strong>
+              QRCode Scan
+            </strong></h5>
+        </div>
+      </swiper-slide>
+
+    </swiper-container>
+  </div>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed"  *ngIf="swiperRef?.nativeElement.swiper.activeIndex !== 2">
+    <ion-fab-button (click)="sliderChanges()" color="primary">
+      <ion-icon name="arrow-forward"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>  
+  
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed"  *ngIf="swiperRef?.nativeElement.swiper.activeIndex === 2">
+    <ion-fab-button (click)="getStarted()" color="primary">
+      <ion-icon name="arrow-forward"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
+
+<!-- <ion-footer class="ion-no-border">
+  <ion-toolbar class="ion-text-center">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-button expand="full" color="primary" *ngIf="swiperRef?.nativeElement.swiper.activeIndex !== 2"
+          (click)="sliderChanges()">
+          <strong>{{'next' | uppercase}} </strong>
+
+        </ion-button> <ion-button expand="full" color="primary"
+          *ngIf="swiperRef?.nativeElement.swiper.activeIndex === 2" (click)="getStarted()">
+          <strong>{{'Get started' | uppercase}} </strong>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer> -->
+
+<!-- (ionslideChange)="slideChange($event)"vvvvvvvvvvvvv -->

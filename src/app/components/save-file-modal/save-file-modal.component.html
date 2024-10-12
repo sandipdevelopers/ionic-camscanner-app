@@ -1,0 +1,44 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title>
+      <strong> Save File</strong>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Cancel</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="modal-content">
+    <!-- Updated ion-select with name attribute -->
+    <ion-input  mode="md" class="ion-margin-bottom" label="File name" label-placement="floating" [(ngModel)]="filename"  fill="outline" placeholder="Enter file name"></ion-input>
+
+
+    <ion-select mode="md" class="ion-margin-top" [(ngModel)]="defaultFolder" name="select_folder"
+      (ionChange)="selectChanges($event)" label="Select Folder" label-placement="floating" fill="outline">
+      <ng-container *ngFor="let folder of saveFile.allFolder">
+        <ion-select-option [value]="folder.name">{{folder.name}}</ion-select-option>
+      </ng-container>
+    </ion-select>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="ion-text-center">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-button expand="full" color="danger" (click)="closeModal()">
+          <ion-icon name="close-outline" slot="start"></ion-icon>
+          Close
+        </ion-button>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+        <ion-button expand="full" color="primary" (click)="save()">
+          <ion-icon name="checkmark-outline" slot="start"></ion-icon>
+          Save
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

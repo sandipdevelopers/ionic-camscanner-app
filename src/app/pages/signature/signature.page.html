@@ -1,0 +1,88 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <strong>Signature</strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="padding: 10px;">
+
+    <div class="ion-margin-bottom">
+      <ion-radio-group class="container-fluid">
+        <div style="margin-right: 10px !important;">
+          <ion-radio mode="md" class="pen-white" value="white" name="penColor"
+            (click)="updatePenColor('#efefef')"></ion-radio>
+        </div>
+        <div style="margin-right: 10px !important;">
+          <ion-radio mode="md" class="pen-black" value="black" name="penColor"
+            (click)="updatePenColor('#000000')"></ion-radio>
+        </div>
+        <div style="margin-right: 10px !important;">
+          <ion-radio mode="md" class="pen-red" value="red" name="penColor"
+            (click)="updatePenColor('#eb445a')"></ion-radio>
+        </div>
+        <div style="margin-right: 10px !important;">
+          <ion-radio mode="md" class="pen-green" value="green" name="penColor"
+            (click)="updatePenColor('#2dd36f')"></ion-radio>
+        </div>
+        <div style="margin-right: 10px !important;">
+          <ion-radio mode="md" class="pen-blue" value="blue" name="penColor"
+            (click)="updatePenColor('#4169E1')"></ion-radio>
+        </div>
+      </ion-radio-group>
+    </div>
+
+    <div class="signature-container">
+      <div class="canvas-section ion-text-center" [ngStyle]="{'background': backgroundColor }">
+        <canvas id="signature-canvas"></canvas>
+      </div>
+      <div class="ion-text-center" style="padding: 10px;">
+        <ion-icon style="font-size: 1.5rem;" name="arrow-undo"  class="ion-margin-end" (click)="undo()"></ion-icon>
+        <ion-icon style="font-size: 1.5rem;" name="trash" color="danger" class="ion-margin-end" (click)="clearCanvas()"></ion-icon>
+        <ion-icon style="font-size: 1.5rem;" name="arrow-redo"  (click)="redo()" class="ion-margin-end"></ion-icon>
+      </div>
+    </div>
+
+    <div class="ion-margin-top">
+      <ion-radio-group class="container-fluid">
+        <div style="margin-right: 10px !important;">
+          <ion-radio mode="md" class="pen-white" value="white" name="penColor"
+            (click)="updateBackgroundColor('#efefef')"></ion-radio>
+        </div>
+        <div style="margin-right: 10px !important;">
+          <ion-radio mode="md" class="pen-black" value="black" name="penColor"
+            (click)="updateBackgroundColor('#000000')"></ion-radio>
+        </div>
+        <div style="margin-right: 10px !important;">
+          <ion-radio mode="md" class="pen-red" value="red" name="penColor"
+            (click)="updateBackgroundColor('#eb445a')"></ion-radio>
+        </div>
+        <div style="margin-right: 10px !important;">
+          <ion-radio mode="md" class="pen-green" value="green" name="penColor"
+            (click)="updateBackgroundColor('#2dd36f')"></ion-radio>
+        </div>
+        <div style="margin-right: 10px !important;">
+          <ion-radio mode="md" class="pen-blue" value="blue" name="penColor"
+            (click)="updateBackgroundColor('#4169E1')"></ion-radio>
+        </div>
+      </ion-radio-group>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="ion-text-center">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-button expand="full" color="primary" (click)="saveSignature()">
+          <strong>Save Signature</strong>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

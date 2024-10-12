@@ -1,0 +1,151 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md" color="primary">
+    <ion-title>
+      <strong>{{service.app_name}}</strong>
+    </ion-title>
+  </ion-toolbar>
+  <!-- <ion-toolbar mode="md" color="primary">
+    <ion-searchbar mode="ios" color="light">
+
+    </ion-searchbar>
+
+  </ion-toolbar> -->
+
+</ion-header>
+
+<ion-content>
+  <div style="padding: 10px;">
+    <div class="recent-file-container">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div style="padding:5px">
+          <strong> Folders</strong>
+        </div>
+      </div>
+      <ion-row>
+        <ng-container *ngFor="let  folder  of saveFile.allFolder">
+          <ion-col size="4">
+            <ion-card class="ion-no-margin folder-item" color="primary" (click)="goToMyDocument(folder.name)">
+              <div style="padding: 10px; text-align: center;">
+                <!-- style="display: flex; justify-content: space-between; align-items: center;" -->
+                <div >
+                  <div>
+                    <img width="50%" src="assets/icon/folder.svg" alt="" srcset="">
+                  </div>
+                  <!-- <div>
+                    <img width="250px" src="assets/icon/menu-vertical.svg" alt="">
+                  </div> -->
+                </div>
+                <div>
+                  <p><strong>{{folder.name}}</strong></p>
+               
+                </div>
+              </div>
+            </ion-card>
+          </ion-col>
+        </ng-container>
+        <ion-col size="4">
+            <ion-card class="ion-no-margin folder-item" color="primary" (click)="goToTools()">
+              <div style="padding: 10px; text-align: center;">
+                <div >
+                  <div>
+                    <img width="50%" src="assets/tools/toolsIcon.svg" alt="" srcset="">
+                  </div>
+                 
+                </div>
+                <div>
+                  <p style="color: #000000;"><strong>Tools</strong></p>
+               
+                </div>
+              </div>
+            </ion-card>
+          </ion-col>
+
+      </ion-row>
+    </div>
+
+    <hr>
+    <div class="recent-container" >
+      <div>
+        <div style="padding:5px">
+          <strong>Recent</strong>
+        </div>
+      </div>
+      <ion-list class="view "*ngIf="saveFile.recentFile && saveFile.recentFile.length">
+        <ng-container *ngFor="let file of saveFile.recentFile">
+          <ion-item  (click)="fileAction(file)"[button]="true" class="ion-no-padding list-item" lines="none">
+            <ion-avatar slot="start">
+              <img alt="pdf"  style="margin-left: 8px;" [src]="file.nativeUrl" *ngIf="file.ext !== 'pdf'"/>
+            <img alt="pdf" src="/assets/icon/pdf.svg" *ngIf="file.ext == 'pdf'"/>
+            </ion-avatar>
+            <ion-label>
+              <ion-text style="font-size: 0.900rem;"><strong> {{ file.name }}</strong></ion-text>
+              <ion-note color="secondary" class="file-note">
+                <span>{{file.ctime | date :'short'}}</span> <span>{{file.msize}}</span>
+              </ion-note>
+            </ion-label>
+          </ion-item>
+        </ng-container>
+      </ion-list>
+      <div class="ion-text-center ion-margin-top" *ngIf="!saveFile.recentFile || !saveFile.recentFile.length" style="margin-top: 15px;">
+        <ion-label class=" ion-margin-top">
+          <ion-text style="font-size:1rem;"><strong>No any docs found! </strong></ion-text>
+        </ion-label>
+      </div>
+    </div>
+  </div>
+  <!-- FAB positioned in the bottom right corner -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="uploadImages()" color="primary">
+      <ion-icon name="camera-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="primary" class="ion-text-center">
+    <ion-row>
+      <ion-col class=" ion-footer-col">
+        <div (click)="service.commonNavigation('/home')">
+          <ion-icon style="width: 100%; font-size: 1.5rem;" class="d-block" name="home-outline" slot="start"></ion-icon>
+          <p class="d-block">Home</p>
+        </div>
+      </ion-col> 
+
+     
+      <ion-col class=" ion-footer-col">
+        <div (click)="goToMyDocument('Documents')">
+          <ion-icon style="width: 100%; font-size: 1.5rem;" class="d-block" name="documents-outline"
+            slot="start"></ion-icon>
+            <!-- <img style="height: 20px;" src="assets/tools/my-doc.svg" alt=""> -->
+
+          <p class="d-block">Files</p>
+        </div>
+      </ion-col>
+      
+      <ion-col class=" ion-footer-col">
+        <div (click)="service.rateApp()">
+          <!-- <ion-icon style="width: 100%; font-size: 1.5rem;" class="d-block" name="construct-outline"
+            slot="start"></ion-icon> -->
+            <img style="height: 20px;" src="/assets/icon/rate.svg" alt="">
+          <p class="d-block">Rate</p>
+        </div>
+      </ion-col>
+      <!-- <ion-col class=" ion-footer-col">
+        <div (click)="shareUs()">
+         
+            <img style="height: 20px;" src="/assets/icon/share.svg" alt="">
+          <p class="d-block">Share Us</p>
+        </div>
+      </ion-col> -->
+      <ion-col class=" ion-footer-col">
+        <div (click)="goToTools()">
+          <ion-icon style="width: 100%; font-size: 1.5rem;" class="d-block" name="construct-outline"
+            slot="start"></ion-icon>
+          <p class="d-block">Tools</p>
+        </div>
+      </ion-col>
+
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

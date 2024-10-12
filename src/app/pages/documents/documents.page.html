@@ -1,0 +1,86 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <strong> Document Scan</strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="padding: 10px;">
+    <ion-row *ngIf="service.uploadedDocument. length">
+      <ng-container *ngFor="let  image of service.uploadedDocument;let index=index">
+        <ion-col size="6">
+          <ion-card class="ion-no-margin folder-item">
+            <img alt="uploadedDocument" class="uploadedDocument" [src]="image" />
+            <ion-card-content style="padding: 3px;">
+              <ion-row>
+                <ion-col>
+                  <ion-icon color="dark" (click)="swipeImagePrev(index)" name="arrow-back-outline"></ion-icon>
+
+                </ion-col>
+                <ion-col>
+                  <ion-icon color="dark" name="arrow-forward-outline" (click)="swipeImageNext(index)"></ion-icon>
+
+                </ion-col>
+                <!-- <ion-col>
+                  <ion-icon color="dark" (click)="cropImage(index)" name="cut-outline"></ion-icon>
+
+                </ion-col> -->
+                <ion-col>
+                  <ion-icon color="dark" name="refresh-outline"(click)="replaceImage(index)"></ion-icon>
+
+                </ion-col>
+                <ion-col>
+                  <ion-icon color="dark" name="trash-outline"(click)="deleteImages(index)"></ion-icon>
+
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+
+        </ion-col>
+      </ng-container>
+
+      <!-- Uploaded documents goes here! -->
+
+    </ion-row>
+    <div class="ion-text-center ion-margin-top" *ngIf="!service.uploadedDocument || !service.uploadedDocument.length">
+      <ion-label class=" ion-margin-top">
+        <ion-text style="font-size:1rem;"><strong>Uploaded documents goes here! </strong></ion-text>
+      </ion-label>
+  </div>
+  </div>
+  <!-- FAB positioned in the bottom right corner -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="uploadImages()" color="primary">
+      <ion-icon name="camera-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="ion-text-center">
+
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-button expand="full" color="primary" (click)="saveAsImage()">
+          <ion-icon name="image-outline" slot="start"></ion-icon>
+          Save as Image
+        </ion-button>
+      </ion-col>
+
+      <ion-col class="ion-no-padding">
+
+        <ion-button expand="full" color="primary" (click)="saveAsPDF()">
+          <ion-icon name="document-outline" slot="start"></ion-icon>
+          Save as PDF
+        </ion-button>
+      </ion-col>
+
+    </ion-row>
+  </ion-toolbar>
+
+</ion-footer>

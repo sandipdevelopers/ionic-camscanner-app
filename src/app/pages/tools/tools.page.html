@@ -1,0 +1,174 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <strong>Tools</strong>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <img src="/assets/tools/tools.svg" alt="">
+  <div style="padding: 10px;">
+    <ion-row>
+      <ng-container>
+        
+        <ion-col size="4">
+          <ion-card class="ion-no-margin folder-item" color="primary" (click)="goToImageToPDF()">
+            <div style="padding: 8px;text-align: center;">
+              <div>
+                <img width="50%" src="assets/tools/img-pdf.svg" alt="" srcset="">
+              </div>
+              <div>
+                <p style="font-size: 10px;"><strong>Photo To PDF</strong></p>
+              </div>
+            </div>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4">
+          <ion-card class="ion-no-margin folder-item" color="primary" (click)="goToIDCard()">
+            <div style="padding: 8px;text-align: center;">
+              <div>
+                <img width="50%" src="assets/tools/id-card.svg" alt="" srcset="">
+              </div>
+              <div>
+                <p style="font-size: 10px;"><strong>IDcard</strong></p>
+              </div>
+            </div>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-card class="ion-no-margin folder-item" color="primary"(click)="scanBarcode()">
+            <div style="padding: 8px;text-align: center;">
+              <div>
+                <img width="50%" src="assets/tools/barcode.svg" alt="" srcset="">
+              </div>
+              <div>
+                <p style="font-size: 10px;"><strong>Scan Barcode</strong></p>
+              </div>
+            </div>
+          </ion-card>
+        </ion-col>
+
+
+        <ion-col size="4">
+          <ion-card class="ion-no-margin folder-item" color="primary" (click)="scanQrCode()">
+            <div style="padding: 8px;text-align: center;">
+              <div>
+                <img width="50%" src="assets/tools/qr-code.svg" alt="" srcset="">
+              </div>
+              <div>
+                <p style="font-size: 10px;"><strong>Scan QRCode</strong></p>
+              </div>
+            </div>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-card class="ion-no-margin folder-item" color="primary"(click)="goToCreateQR()">
+            <div style="padding: 8px;text-align: center;">
+              <div>
+                <img width="50%" src="assets/tools/qr-code-create.svg" alt="" srcset="">
+              </div>
+              <div>
+                <p style="font-size: 10px;"><strong>Create QR Code</strong></p>
+              </div>
+            </div>
+          </ion-card>
+        </ion-col>
+
+        <ion-col size="4">
+          <ion-card class="ion-no-margin folder-item" color="primary" (click)="goToSignature()">
+            <div style="padding: 8px;text-align: center;">
+              <div>
+                <img width="50%" src="assets/tools/signature.svg" alt="" srcset="">
+              </div>
+              <div>
+                <p style="font-size: 10px;"><strong>Signature</strong></p>
+              </div>
+            </div>
+          </ion-card>
+        </ion-col> 
+        
+        
+        <ion-col size="4">
+          <ion-card class="ion-no-margin folder-item" color="primary" (click)="goToOCR()">
+            <div style="padding: 8px;text-align: center;">
+              <div>
+                <img width="50%" src="assets/tools/text.svg" alt="" srcset="">
+              </div>
+              <div>
+                <p style="font-size: 10px;"><strong>OCR</strong></p>
+              </div>
+            </div>
+          </ion-card>
+        </ion-col>
+
+      <ion-col size="4">
+          <ion-card class="ion-no-margin folder-item" color="primary" (click)="goToDocument()">
+            <div style="padding: 8px;text-align: center;" >
+              <div>
+                <img width="50%" src="assets/tools/document.svg" alt="" srcset="">
+              </div>
+              <div>
+                <p style="font-size: 10px;"><strong>Document</strong></p>
+              </div>
+            </div>
+          </ion-card>
+        </ion-col>
+        <ion-col size="4">
+          <ion-card class="ion-no-margin folder-item" color="primary" (click)="goToMyDocument('Documents')">
+            <div style="padding: 8px;text-align: center;">
+              <div>
+                <img width="50%" src="assets/tools/my-doc.svg" alt="" srcset="">
+              </div>
+              <div>
+                <p style="font-size: 10px; color: #000000;"><strong>Files</strong></p>
+              </div>
+            </div>
+          </ion-card>
+        </ion-col>
+
+
+      </ng-container>
+
+    </ion-row>
+    <!-- 
+      <ion-item  [button]="true" class="ion-no-padding list-item"  lines="none" (click)="service.commonNavigation('/qrcode')">
+        <ion-avatar slot="start">
+          <img alt="pdf" src="/assets/tools/pdf.svg" />
+        </ion-avatar>
+        <ion-label>
+          <ion-text><strong> Scan QRCode</strong></ion-text>
+        </ion-label>
+      </ion-item>
+      <ion-item  [button]="true" class="ion-no-padding list-item"  lines="none" (click)="service.commonNavigation('/barcode')">
+        <ion-avatar slot="start">
+          <img alt="pdf" src="/assets/tools/pdf.svg" />
+        </ion-avatar>
+        <ion-label>
+          <ion-text><strong>Create QR Code</strong></ion-text>
+        </ion-label>
+      </ion-item>
+      <ion-item  [button]="true" class="ion-no-padding list-item"  lines="none" (click)="service.commonNavigation('/signature')">
+        <ion-avatar slot="start">
+          <img alt="pdf" src="/assets/tools/pdf.svg" />
+        </ion-avatar>
+        <ion-label>
+          <ion-text><strong> Signature</strong></ion-text>
+        </ion-label>
+      </ion-item>
+      <ion-item  [button]="true" class="ion-no-padding list-item"  lines="none" (click)="service.commonNavigation('/ocr')">
+        <ion-avatar slot="start">
+          <img alt="pdf" src="/assets/tools/pdf.svg" />
+        </ion-avatar>
+        <ion-label>
+          <ion-text><strong>OCR</strong></ion-text>
+        </ion-label>
+      </ion-item>
+    </ion-list> -->
+  </div>
+
+</ion-content>
