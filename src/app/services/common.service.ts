@@ -100,7 +100,7 @@ export class CommonService {
 
   rateApp() {
     NativeMarket.openStoreListing({
-      appId: 'id6677023357',
+      appId: '12121212121212',
     });
   }
 
